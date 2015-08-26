@@ -16,7 +16,7 @@
 		}
 
 		.cd-folding-panel .cd-close {
-			background: rgb(84, 65, 115) none repeat scroll 0% 0%;
+			background-color: #aaa;
 			border-radius: 100%;
 			width: 3em;
 			height: 3em;
@@ -27,6 +27,20 @@
 			background-color: white;
 			height: 2px;
 			width: 28px;
+		}
+
+		.cd-item {
+			overflow: hidden;
+		}
+
+		.cd-item img {
+			position: absolute;
+			top: -23%;
+			left: 0;
+			width: 120%;
+			z-index: -1;
+			height: auto;
+			opacity: 0.1;
 		}
 
 		.project-content .title {
@@ -87,6 +101,7 @@
 						<p>Website visual redesign</p>
 						<b>View More</b>
 					</div>
+					<img src="bigsur/bigsur_page2.jpg">
 				</a>
 			</li>
 
@@ -97,6 +112,7 @@
 						<p>User Experience Design</p>
 						<b>View More</b>
 					</div>
+					<img src="ux/pics/landing-page.png">
 				</a>
 			</li>
 
@@ -107,10 +123,11 @@
 						<p>Mobile app design</p>
 						<b>View More</b>
 					</div>
+					<img src="openpage.png">
 				</a>
 			</li>
 
-			<li class="cd-item">
+			<li class="cd-item disabled">
 				<a href="item-4.html">
 					<div>
 						<h2>Nova Ukraine</h2>
@@ -137,5 +154,16 @@
 
 <script src="js/jquery-2.1.1.js"></script>
 <script src="js/main.js"></script> <!-- Resource jQuery -->
+<script>
+	$(function() {
+		$('.cd-item').on('click', function() {
+			var color = $(this).css('background-color');
+			setTimeout(function() {
+				$('.project-content .title').css('color', color);
+				$('.cd-folding-panel .cd-close').css('background-color', color);
+			}, 500);
+		});
+	});
+</script>
 </body>
 </html>
