@@ -1,6 +1,44 @@
-html { height: 100%; overflow: hidden; }
+@media only screen and (min-width: 600px) {
+  html, body, main { height: 100%; }
+  body { overflow: hidden; }
 
-body { margin: 0; height: 100%; }
+  .sharon {
+    display: flex;
+    display:-webkit-flex;
+    background: #DCC861;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0;
+    cursor: pointer;
+    -webkit-transition: width 1s, box-shadow 200ms ease 800ms;
+    -moz-transition:    width 1s, box-shadow 200ms ease 800ms;
+    transition:         width 1s, box-shadow 200ms ease 800ms;
+  }
+
+  .sharon.folded {
+    width: 20%;
+    box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .cd-gallery {
+    margin-left: 20%;
+  }
+
+  .cd-folding-panel {
+    margin-left: 10%;
+  }
+
+  .sharon.about {
+    box-shadow: none;
+    -webkit-transition: width 1s;
+    -moz-transition:    width 1s;
+    transition:         width 1s;
+  }
+}
 
 #wrapper {
   height: 100%;
@@ -12,7 +50,7 @@ body { margin: 0; height: 100%; }
 .about-me {
   background-color: rgba(91, 79, 10, 0.3);
   padding: 7px;
-  width: 7em;
+  width: 8em;
   margin-left: 29px !important;
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -24,7 +62,7 @@ body { margin: 0; height: 100%; }
   background: rgba(91, 79, 10, 0.1);
 }
 
-.sharon {
+.sharonx {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -51,15 +89,17 @@ body { margin: 0; height: 100%; }
 }
 
 .sharon-about {
-  width: 0;
+  width: 0%;
+  height: 100%;
   overflow: hidden;
   background: white;
-  transition: all 2s;
   position: relative;
+  -webkit-transition: width 1.5s;
+  -moz-transition:    width 1.5s;
+  transition:         width 1.5s;
 }
 
 .sharon-about-content {
-  width: 100%;
   padding: 2em 0;
 }
 
@@ -74,10 +114,11 @@ body { margin: 0; height: 100%; }
 .sharon-block h1 {
   font-size: 5em;
   margin-bottom: 0.1em;
+  color: hsl(51, 79%, 20%);
 }
 
 .sharon.folded .sharon-block h1 {
-  font-size: 3em;
+  font-size: 2.6em;
   margin-bottom: 1%;
 }
 
@@ -85,6 +126,8 @@ body { margin: 0; height: 100%; }
   transition: all 2s;
   opacity: 1;
   max-height: 50px;
+  margin-left: 10%;
+  color: hsl(51, 79%, 20%);
 }
 
 .sharon-details.sharon-hidden {
@@ -113,47 +156,6 @@ hr {
   border-top: 1px solid #ccc;
 }
 
-h1 {
-  font-size: 3em;
-  margin: 0;
-  font-weight: normal;
-}
-
-.hidden {
-  display: none;
-}
-
-h1 .small {
-  font-size: 0.7em;
-  font-variant: small-caps;
-}
-
-
-.content {
-  display: none;
-}
-
-.section.selected .content {
-  display: block;
-  height: 100%;
-  overflow: auto;
-  position: relative;
-  background: white;
-  z-index: 3;
-  padding-top: 1em;
-}
-
-.content h2 {
-  font-size: 1.5em;
-  margin: 0;
-  color: #666;
-  padding-bottom: .3em;
-}
-
-.content h2:not(:first-child) {
-  margin-top: 1em;
-}
-
 img.left {
   float: left;
   border-radius: 100%;
@@ -172,13 +174,12 @@ img.left {
   background: rgba(229, 198, 28, 0.13);
   flex: 1;
   -webkit-flex: 1;
-  max-width: 50em;
+  max-width: 56em;
   font-size: 14px;
   padding: 2em;
   border-radius: 3px;
   -webkit-border-radius: 3px;
-  margin: 2em;
-  margin-top: 0;
+  margin: 0em 4em 3em 1em;
   position: relative;
   border-bottom: 2px solid #ddd;
   color: #555;
@@ -198,21 +199,6 @@ img.left {
 
 .panel-right .my-name {
   font-weight: 700;
-}
-
-.back {
-  position: absolute;
-  right: 15px;
-  top: 9px;
-  font-size: 2em;
-  cursor: pointer;
-  font-family: monospace;
-  z-index: 1;
-  background: none !important;
-}
-
-.section:not(.selected) .back {
-  display: none;
 }
 
 .tags-container {
@@ -260,164 +246,6 @@ img.left {
 
 .resume a:hover {
   color: black;
-}
-
-.bubbles {
-  width: 100%;
-  position: relative;
-  background: hsl(51, 79%, 96%);
-}
-
-.bubble {
-  box-sizing: border-box;
-  border: 0px solid rgb(240, 234, 201);
-  border-radius: 24em;
-  -webkit-border-radius: 24em;
-  overflow: hidden;
-  cursor: pointer;
-  background: #2D2D18;
-  z-index: 1;
-  background: rgb(101, 98, 28);
-}
-
-.bubble.disabled {
-  cursor: not-allowed;
-}
-
-.bubble img {
-  width: 140%;
-  position: relative;
-  top: -0.2em;
-  left: -5em;
-  transition: all 600ms;
-  opacity: 0.3;
-}
-
-.bubble:after {
-  content: attr(name);
-  pointer-events: none;
-  position: absolute;
-  top: 44%;
-  width: 100%;
-  text-align: center;
-  color: white;
-  opacity: 1;
-  transition: all 600ms;
-  font-size: 1.6em;
-  padding: .5em 0;
-}
-
-.bubble.disabled:before {
-  content: "(Coming Soon)";
-  pointer-events: none;
-  position: absolute;
-  top: 64%;
-  width: 100%;
-  text-align: center;
-  color: white;
-  opacity: 0.7;
-  transition: all 600ms;
-  font-size: 1.3em;
-}
-
-.project-btn {
-  transition: opacity 300ms;
-  opacity: 0;
-  position: absolute;
-  z-index: 11;
-  margin-left: 300px;
-  left: 0.9em;
-  top: 0.6em;
-  background: #E5C61C;
-  color: white;
-  border-radius: 100%;
-  -webkit-border-radius: 100%;
-  height: 2.8em;
-  width: 2.8em;
-  cursor: pointer;
-  display: flex;
-  display:-webkit-flex;
-  box-shadow: 3px 3px 4px -1px rgba(0, 0, 0, 0.3);
-}
-
-.project-close {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
-
-.project-top {
-  bottom: 1em;
-  right: 1em;
-  top: initial;
-  left: initial;
-}
-
-.project-btn span {
-  font-size: 1.9em;
-  font-weight: 300;
-  top: 0.1em;
-  left: 0.4em;
-  margin: auto;
-}
-
-.project-btn i.fa {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  text-align: center;
-  top: 0.5em;
-  font-size: 1.3em;
-}
-
-.project-title {
-  font-size: 1.8em;
-  color: rgb(91, 79, 10);
-  display: inline-block;
-  padding: 4px;
-  border-radius: 30.9px;
-  -webkit-border-radius: 30.9px;
-  font-variant: small-caps;
-  font-weight: 300;
-  position: absolute;
-  top: 0.4em;
-  left: 0;
-  z-index: 10;
-  margin-left: 300px;
-  text-align: center;
-  width: 15em;
-  box-sizing: border-box;
-  transition: all 500ms;
-  border: 0;
-  background: none;
-  padding-left: 1em;
-  opacity: 0;
-}
-
-.project-title.scrolled {
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  left: -11.9em;
-  top: 1em;
-  box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.08);
-  font-size: 1.1em;
-  padding-right: 2em;
-  width: 13.7em;
-  padding-left: 0.4em;
-}
-
-.project {
-  transition: top 800ms;
-  position: absolute;
-  background-color: white;
-  top: 100%;
-  left: 0;
-  height: 100%;
-  z-index: 1;
-  overflow: auto;
-  padding-top: 4em;
-  box-sizing: border-box;
 }
 
 .contact {
@@ -517,86 +345,14 @@ img.left {
     text-align: center;
   }
 
-  .bubbles {
-    margin-top: 8em;
-    display: flex;
-    display:-webkit-flex;
-    flex-direction: column;
-    -webkit-flex-direction: column;
-    background: white;
-    height: calc(100% - 8em);
-  }
-
-  .bubble {
-    position: relative;
-    margin: 0;
-    border-radius: 0;
-    flex: 1;
-    -webkit-flex: 1;
-    border-bottom: 3px solid white;
-    transition: none;
-  }
-
-  .bubble::after {
-    font-size: 3.7em;
-    top: 35%;
-    transition: none;
-  }
-
-  .bubble.disabled:before {
-    font-size: 2.4em;
-    top: 73%;
-  }
-
-  .bubble img {
-    width: 104%;
-    top: -3.6em;
-    left: -0.7em;
-    transition: none;
-    opacity: 0.3;
-    position: relative;
-  }
-
   .sharon-details .about-me {
-    display: none;
-  }
-
-  .project {
-    width: 100%;
-    padding-top: 12em;
-  }
-
-  .project-close {
-    top: 3.3em;
-    left: 0.6em;
-    margin: 0;
-    font-size: 3em;
-  }
-
-  .project-title {
-    margin: 0px;
-    top: 3.4em;
-    margin-left: 0.5em;
-    font-size: 3.5em;
-  }
-
-  .project-title.scrolled {
-    left: 0;
-    margin: 3.9em 2em;
-  }
-
-  .project-top {
     display: none;
   }
 }
 
 @media only screen and (min-device-width: 480px) {
   .sharon {
-    transition: all 1s;
-  }
-
-  .sharon.folded {
-    width: 300px;
+    // transition: all 1s;
   }
 
   .sharon.folded .sharon-block {
@@ -612,7 +368,7 @@ img.left {
   }
 
   .sharon.about .sharon-about {
-    width: calc(100% - 300px);
+    width: 80%;
   }
 
   .subhead {
@@ -621,37 +377,5 @@ img.left {
 
   .sharon-details div {
     margin: 1em;
-  }
-
-  .bubbles {
-    margin-left: 300px;
-  }
-
-  .bubble {
-    position: absolute;
-    margin: auto;
-    margin-top: 0;
-    height: 21em;
-    width: 21em;
-  }
-
-  .bubble:not(.disabled):hover {
-    border-width: 1px;
-  }
-
-  .bubble:not(.disabled):hover img {
-    opacity: 0.8;
-    width: 135%;
-    left: -4.5em;
-    top: 0em;
-  }
-
-  .bubble:not(.disabled):hover:after {
-    background: rgba(0,0,0,0.6);
-  }
-
-  .project {
-    width: calc(100% - 300px);
-    margin-left: 300px;
   }
 }

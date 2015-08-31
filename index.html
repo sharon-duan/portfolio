@@ -6,9 +6,11 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Vollkorn|Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="css/reset.css">   <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css">   <!-- Resource style -->
 	<link rel="stylesheet" href="css/project.css"> <!-- Custom style -->
+	<link rel="stylesheet" href="css/sharon.css">  <!-- Custom style -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> <!-- Font Awesome Icons-->
 
 	<style>
 		.cd-fold-content {
@@ -18,15 +20,15 @@
 		.cd-folding-panel .cd-close {
 			background-color: #aaa;
 			border-radius: 100%;
-			width: 3em;
-			height: 3em;
+			width: 2.5em;
+			height: 2.5em;
 			box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.4);
 		}
 
 		.cd-folding-panel .cd-close:before, .cd-folding-panel .cd-close:after {
 			background-color: white;
-			height: 2px;
-			width: 28px;
+			height: 1px;
+			width: 17px;
 		}
 
 		.cd-item {
@@ -88,10 +90,87 @@
 
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 
-	<title>3D Folding Panel</title>
+	<title>Sharon Duan</title>
 </head>
 <body>
 	<main class="cd-main">
+
+		<div class="sharon">
+      <div class="sharon-about">
+        <div class="sharon-about-content">
+          <div class="flex">
+            <img class="left" src="cucu.jpg">
+            <div class="panel-right">
+              <p>My name is <span class="my-name">Sharon Duan</span> and I am an entry-level web designer seeking a position in web production/UI/UX.</p>
+
+              <p>I'm a person that has the natural artistic eye for design. I believe good design will be the mover-shaker of successful products and bringing happiness, convenience, and good quality of life to people. </p>
+
+              <p>Having worked in the communications field for the past years, I've already grasped solid project management, organizational, multi-tasking, social media, research and analytical skills. I'm a quick learner and can work well in both team and self-directed environments and I am always fully committed to meet the deadlines and pay attention to details.</p>
+
+              <p>I am now fully dedicated to web design and UI/UX creation. Right now, I am a student at University of California, Santa Cruz extension, learning web and interactive media design.</p>
+            </div>
+          </div>
+
+          <div class="tags-container">
+            <div class="tags-title">TAGS</div>
+            <div class="tags">
+              <div>UI/UX Design</div>
+              <div>Graphic Design</div>
+              <div>HTML</div>
+              <div>CSS</div>
+              <div>Javascript</div>
+              <div>PHP</div>
+              <div>Drupal</div>
+              <div>Wordpress</div>
+              <div>Deamweaver</div>
+              <div>InVision</div>
+              <div>Sketch 3</div>
+              <div>Adobe Creative Suite</div>
+              <div>Balsamiq</div>
+              <div>Justinmind</div>
+              <div>Fluid UI</div>
+              <div>Prototyping</div>
+              <div>Concept Creation</div>
+              <div>Information Architecture</div>
+              <div>SEO</div>
+              <div>Consumer Insight</div>
+              <div>Data Analysis</div>
+              <div>SPSS</div>
+              <div>NodeXL</div>
+              <div>Netsuite</div>
+              <div>Travel</div>
+              <div>Food</div>
+              <div>Culture</div>
+              <div>Coffee</div>
+              <div>Pigs &amp; Hamsters</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sharon-block">
+        <h1><span>S</span><span class="small">haron</span> <span>D</span><span class="small">uan</span></h1>
+
+        <p class="subhead">A UI/UX designer</p>
+
+        <div class="sharon-details sharon-hidden">
+          <div>
+            <a href="mailto:duxyu5@gmail.com" target="_blank"><i class="fa fa-envelope"></i>duxyu5@gmail.com</a>
+          </div>
+          <div>
+            <a href="tel:+1-202-316-5825"><i class="fa fa-phone"></i>+1 202-316-5825</a>
+          </div>
+          <div>
+            <a href="https://www.google.com/maps?q=mountain+view" target="_blank"><i class="fa fa-home"></i>Mountain View, CA</a>
+          </div>
+          <div>
+            <a href="SharonDuan.pdf" target="_blank"><i class="fa fa-file-pdf-o"></i>My Resume</a>
+          </div>
+          <div class="about-me">
+            <i class="fa fa-question-circle"></i>About Me
+          </div>
+        </div>
+      </div>
+    </div>
 
 		<ul class="cd-gallery">
 			<li class="cd-item">
@@ -127,7 +206,7 @@
 				</a>
 			</li>
 
-			<li class="cd-item disabled">
+			<li class="cd-item">
 				<a href="item-4.html">
 					<div>
 						<h2>Nova Ukraine</h2>
@@ -156,6 +235,8 @@
 <script src="js/main.js"></script> <!-- Resource jQuery -->
 <script>
 	$(function() {
+		console.log("%cWelcome to my Portfolio :-)", "color: orange");
+
 		$('.cd-item').on('click', function() {
 			var color = $(this).css('background-color');
 			setTimeout(function() {
@@ -163,6 +244,36 @@
 				$('.cd-folding-panel .cd-close').css('background-color', color);
 			}, 500);
 		});
+
+
+		var isMobile = window.matchMedia("(@media only screen and (min-width: 600px))").matches;
+
+		if (!isMobile) {
+		  var t_foldSharon = setTimeout(foldSharon, 2000);
+		  $('.sharon').on('click.foldSharon', foldSharon);
+		} else {
+		  foldSharon();
+		  // $('.sharon-details').insertAfter('.bubbles');
+		}
+
+		return;
+
+		function foldSharon() {
+		  clearTimeout(t_foldSharon);
+		  $('.sharon').off('click.foldSharon');
+		  $('.sharon').addClass('folded');
+		  setTimeout(function() {
+		    $('.sharon-details').removeClass('sharon-hidden');
+
+		    if (!isMobile) {
+		      $('.sharon').on('click', function() {
+		        $(this).toggleClass('about');
+            $('.sharon-about-content').width($(window).width() * 0.8);
+		      });
+		    }
+
+		  }, (isMobile) ? 0 : 1000);
+		}
 	});
 </script>
 </body>
