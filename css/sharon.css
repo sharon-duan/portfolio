@@ -2,10 +2,41 @@
   html, body, main { height: 100%; }
   body { overflow: hidden; }
 
+  .cd-item { background: #ddd; }
+  .cd-item:nth-of-type(1) { background: #4E589A; }
+  .cd-item:nth-of-type(2) { background: #52A77C; }
+  .cd-item:nth-of-type(3) { background: #E6B648; }
+  .cd-item:nth-of-type(4) { background: #31B7D6; }
+
+  h1, h2 { font-family: inherit !important; }
+
+  .cd-item {
+    overflow: hidden;
+  }
+
+  .cd-item h2 {
+    font-size: 4rem;
+  }
+
+  .cd-item p {
+    font-size: 1.2em;
+    opacity: 0.7;
+  }
+
+  .cd-item img {
+    position: absolute;
+    top: -23%;
+    left: 0;
+    width: 120%;
+    z-index: -1;
+    height: auto;
+    opacity: 0;
+  }
+
   .sharon {
     display: flex;
     display:-webkit-flex;
-    background: #DCC861;
+    background: #FFFBDD;
     z-index: 1;
     position: absolute;
     top: 0;
@@ -21,7 +52,6 @@
 
   .sharon.folded {
     width: 20%;
-    box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.3);
   }
 
   .cd-gallery {
@@ -60,20 +90,6 @@
 
 .about-me:hover {
   background: rgba(91, 79, 10, 0.1);
-}
-
-.sharonx {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  cursor: default;
-  background: #E5C61C;
-  color: hsl(51, 79%, 20%);
-  cursor: pointer;
-  display: flex;
-  display:-webkit-flex;
-  z-index: 10;
-  margin-bottom: 0;
 }
 
 .subhead {
@@ -171,19 +187,19 @@ img.left {
 }
 
 .panel-right {
-  background: rgba(229, 198, 28, 0.13);
   flex: 1;
   -webkit-flex: 1;
   max-width: 56em;
   font-size: 14px;
   padding: 2em;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
   margin: 0em 4em 3em 1em;
   position: relative;
   border-bottom: 2px solid #ddd;
   color: #555;
   line-height: 2em;
+  border: 2px solid #C9D17E;
+  border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
 }
 
 .panel-right:before {
@@ -193,8 +209,8 @@ img.left {
   position: absolute;
   top: 4em;
   left: -4em;
-  border: 2em solid rgba(0, 0, 0, 0);
-  border-right-color: rgba(229, 198, 28, 0.13);
+  border: 2em solid transparent;
+  border-right-color: #C9D17E;
 }
 
 .panel-right .my-name {
