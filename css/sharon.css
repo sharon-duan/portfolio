@@ -1,58 +1,223 @@
-@media only screen and (min-width: 600px) {
-  html, body, main { height: 100%; }
-  body { overflow: hidden; }
+/* Shared */
+.cd-item { background: #ddd; }
+.cd-item:nth-of-type(1) { background: #4E589A; }
+.cd-item:nth-of-type(2) { background: #52A77C; }
+.cd-item:nth-of-type(3) { background: #E6B648; }
+.cd-item:nth-of-type(4) { background: #31B7D6; }
 
-  .cd-item { background: #ddd; }
-  .cd-item:nth-of-type(1) { background: #4E589A; }
-  .cd-item:nth-of-type(2) { background: #52A77C; }
-  .cd-item:nth-of-type(3) { background: #E6B648; }
-  .cd-item:nth-of-type(4) { background: #31B7D6; }
+h1, h2 { font-family: inherit !important; }
 
-  h1, h2 { font-family: inherit !important; }
+.cd-item {
+  overflow: hidden;
+}
 
-  .cd-item {
-    overflow: hidden;
-  }
+.cd-item h2 {
+  font-size: 4rem;
+}
 
-  .cd-item h2 {
-    font-size: 4rem;
-  }
+.cd-item p {
+  font-size: 1.2em;
+  opacity: 0.7;
+}
 
-  .cd-item p {
-    font-size: 1.2em;
-    opacity: 0.7;
-  }
+.cd-item img {
+  position: absolute;
+  top: -23%;
+  left: 0;
+  width: 120%;
+  z-index: -1;
+  height: auto;
+  opacity: 0;
+}
 
-  .cd-item img {
-    position: absolute;
-    top: -23%;
-    left: 0;
-    width: 120%;
-    z-index: -1;
-    height: auto;
-    opacity: 0;
+.sharon {
+  background: #FFFBDD;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0;
+  cursor: pointer;
+}
+
+/* Mobiles */
+@media only screen and (max-width: 600px) {
+  .cd-main {
+    position: relative;
   }
 
   .sharon {
-    display: flex;
-    display:-webkit-flex;
-    background: #FFFBDD;
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    box-shadow: 0;
-    cursor: pointer;
-    -webkit-transition: width 1s, box-shadow 200ms ease 800ms;
-    -moz-transition:    width 1s, box-shadow 200ms ease 800ms;
-    transition:         width 1s, box-shadow 200ms ease 800ms;
+    height: 5em;
+    position: fixed;
+    overflow: hidden;
   }
 
-  .sharon.folded {
-    width: 20%;
+  .cd-gallery {
+    margin-top: 5em;
   }
+
+  .sharon .sharon-block h1 {
+    font-size: 2.6em;
+    padding-top: .2em;
+  }
+
+  .sharon-block {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .sharon-block h1 {
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .sharon-menu {
+    position: absolute;
+    font-size: 1.1em;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    background: #eee;
+  }
+
+  .sharon-menu a {
+    flex: 1;
+    padding: 0.4em;
+    text-align: center;
+    color: #777;
+    cursor: pointer;
+  }
+
+  .subhead {
+    display: none;
+  }
+
+  .sharon-details {
+    background: #eee;
+    padding-top: 5em;
+    padding-bottom: 2em;
+    position: relative;
+  }
+
+  .sharon-details::before {
+    content: "Contact";
+    position: absolute;
+    left: 0em;
+    top: 1em;
+    width: 100%;
+    font-size: 2em;
+    text-align: center;
+    color: #999;
+  }
+
+  .sharon-details div {
+    font-size: 1em;
+    display: block;
+    padding: 1em 2em;
+    color: #666;
+  }
+
+  .sharon-details i.fa {
+    margin-right: 0.5em;
+    width: initial;
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .sharon-details .about-me {
+    display: none;
+  }
+
+  .sharon-about {
+    width: 100%;
+    overflow: hidden;
+    background: white;
+    -webkit-transition: none;
+    -moz-transition:    none;
+    transition:         none;
+  }
+
+  .sharon-about-content-top {
+    position: relative;
+  }
+
+  .sharon-about-content-top::before {
+    content: "About Me";
+    position: absolute;
+    left: 3.2em;
+    font-size: 2em;
+    top: 1em;
+    width: calc(100% - 5.7em);
+    text-align: center;
+    color: #999;
+  }
+
+  .sharon-about-content-top .left {
+    float: none;
+    width: 4em;
+    height: 4em;
+    margin: 1em;
+  }
+
+  .sharon-about-content-top .panel-right {
+    flex: none;
+    -webkit-flex: none;
+    max-width: none;
+    font-size: 14px;
+    padding: 1em;
+    position: relative;
+    margin: 0 1em;
+    border: none;
+    color: #555;
+    line-height: 1.7em;
+    text-align: justify;
+  }
+
+  .sharon-about-content-top .panel-right::before {
+    content: none;
+  }
+
+  .sharon-about-content-top .panel-right p {
+    margin-bottom: 1em;
+  }
+
+  /* hide the last paragraph on mobile phones */
+  .sharon-about-content-top .panel-right p:last-child {
+    display: none;
+  }
+
+  .tags-container {
+    max-width: none;
+    margin: 2em;
+    display: block;
+    margin-top: 1em;
+  }
+
+  .tags-title {
+    padding-bottom: .7em;
+  }
+
+  .tags > div {
+    display: inline-block;
+    font-size: 15px;
+    color: #777;
+    margin: 0 18px 0px 0px;
+    border-bottom: none;
+    width: 9em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.6em;
+  }
+}
+
+/* Tablets and dektop */
+@media only screen and (min-width: 600px) {
+  html, body, main { height: 100%; }
+  body { overflow: hidden; }
 
   .cd-gallery {
     margin-left: 20%;
@@ -62,12 +227,80 @@
     margin-left: 10%;
   }
 
+  .sharon {
+    width: 100%;
+    display: flex;
+    display:-webkit-flex;
+    -webkit-transition: width 1s, box-shadow 200ms ease 800ms;
+    -moz-transition:    width 1s, box-shadow 200ms ease 800ms;
+    transition:         width 1s, box-shadow 200ms ease 800ms;
+  }
+
+  .sharon.folded {
+    width: 20%;
+  }
+
+  .sharon-menu {
+    display: hidden;
+  }
+
   .sharon.about {
-    box-shadow: none;
     -webkit-transition: width 1s;
     -moz-transition:    width 1s;
     transition:         width 1s;
+    width: 0%;
+    height: 100%;
+    overflow: hidden;
+    background: white;
+    position: relative;
   }
+
+  .sharon-about-content {
+    padding: 2em 0;
+  }
+
+  .sharon-about-content-top {
+    display: flex;
+    display: -webkit-flex;
+  }
+
+  .sharon-details {
+    -webkit-transition: all 2s;
+    -moz-transition:    all 2s;
+    transition:         all 2s;
+    opacity: 1;
+    max-height: 50px;
+    margin-left: 10%;
+    color: hsl(51, 79%, 20%);
+  }
+
+  .sharon-details.sharon-hidden {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  .tags-container {
+    max-width: 61em;
+    margin: auto;
+    width: 80%;
+    display: flex;
+    display:-webkit-flex;
+  }
+
+  .tags {
+    flex: 1;
+    -webkit-flex: 1;
+  }
+
+  .tags > div {
+    display: inline-block;
+    font-size: 15px;
+    color: #777;
+    margin: 10px 12px;
+    margin-top: 0;
+    border-bottom: 2px dotted #ddd;
+  }
+
 }
 
 #wrapper {
@@ -85,7 +318,9 @@
   border-radius: 5px;
   -webkit-border-radius: 5px;
   margin-top: 4em !important;
-  transition: all 300ms;
+  -webkit-transition: all 300ms;
+  -moz-transition:    all 300ms;
+  transition:         all 300ms;
 }
 
 .about-me:hover {
@@ -97,33 +332,22 @@
   margin:auto;
   color: #9E6308;
   font-size: 1.3em;
-  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition:    all 1s;
+  transition:         all 1s;
 }
 
 .sharon.folded .subhead {
   font-size: 0.9em;
 }
 
-.sharon-about {
-  width: 0%;
-  height: 100%;
-  overflow: hidden;
-  background: white;
-  position: relative;
-  -webkit-transition: width 1.5s;
-  -moz-transition:    width 1.5s;
-  transition:         width 1.5s;
-}
-
-.sharon-about-content {
-  padding: 2em 0;
-}
-
 .sharon-block {
   margin: auto;
   font-size: 0.9em;
   position: relative;
-  transition: top 1s;
+  -webkit-transition: top 1s;
+  -moz-transition:    top 1s;
+  transition:         top 1s;
   top: 0%;
 }
 
@@ -136,19 +360,6 @@
 .sharon.folded .sharon-block h1 {
   font-size: 2.6em;
   margin-bottom: 1%;
-}
-
-.sharon-details {
-  transition: all 2s;
-  opacity: 1;
-  max-height: 50px;
-  margin-left: 10%;
-  color: hsl(51, 79%, 20%);
-}
-
-.sharon-details.sharon-hidden {
-  opacity: 0;
-  max-height: 0;
 }
 
 .sharon-details a {
@@ -217,32 +428,10 @@ img.left {
   font-weight: 700;
 }
 
-.tags-container {
-  display: flex;
-  display:-webkit-flex;
-  max-width: 61em;
-  margin: auto;
-  width: 80%;
-}
-
 .tags-title {
   font-weight: bold;
   color: #333;
   padding-right: 10px;
-}
-
-.tags {
-  flex: 1;
-  -webkit-flex: 1;
-}
-
-.tags > div {
-  display: inline-block;
-  font-size: 15px;
-  color: #777;
-  margin: 10px 12px;
-  margin-top: 0;
-  border-bottom: 2px dotted #ddd;
 }
 
 .resume {
@@ -289,109 +478,4 @@ img.left {
 
 .contact .email, .contact .phone {
   font-family: monospace;
-}
-
-@media only screen and (max-device-width: 480px) {
-  html, body {
-    overflow: hidden;
-  }
-  body {
-    position: relative
-  }
-
-  :focus {outline:none;}
-  ::-moz-focus-inner {border:0;}
-
-  #wrapper {
-    overflow: auto;
-    display: block;
-  }
-
-  .sharon.folded {
-    height: 8em;
-  }
-
-  .sharon.folded .sharon-block h1 {
-    font-size: 7em;
-  }
-
-  .sharon-block {
-    width: 100%;
-    box-shadow: 0 -1.5em 1.5em 2em rgba(0, 0, 0, 0.5);
-  }
-
-  .sharon-block h1 {
-    margin-top: 0;
-    text-align: center;
-  }
-
-  .subhead {
-    display: none;
-  }
-
-  .sharon-details {
-    max-height: none;
-    transition: none;
-    min-height: 25em;
-  }
-
-  .sharon-details::before {
-    content: "About Me";
-    font-size: 4em;
-    text-align: center;
-    display: block;
-    padding: 0.9em;
-    color: #5B4F0A;
-    font-weight: 200;
-  }
-
-  .sharon-details div {
-    font-size: 2.2em;
-    display: inline-block;
-    width: 40%;
-    padding-left: 2.6em;
-    padding-bottom: 2em;
-    color: #444;
-  }
-
-  .sharon-details i.fa {
-    margin-right: 0.5em;
-    width: initial;
-    font-size: 1.2em;
-    text-align: center;
-  }
-
-  .sharon-details .about-me {
-    display: none;
-  }
-}
-
-@media only screen and (min-device-width: 480px) {
-  .sharon {
-    // transition: all 1s;
-  }
-
-  .sharon.folded .sharon-block {
-    top: -10%;
-  }
-
-  .sharon-block h1 {
-    transition: all 1s;
-  }
-
-  .sharon.about {
-    width: 100%;
-  }
-
-  .sharon.about .sharon-about {
-    width: 80%;
-  }
-
-  .subhead {
-    margin-bottom: 16%;
-  }
-
-  .sharon-details div {
-    margin: 1em;
-  }
 }

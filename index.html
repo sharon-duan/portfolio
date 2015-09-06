@@ -79,12 +79,12 @@
 	<title>Sharon Duan</title>
 </head>
 <body>
-	<main class="cd-main">
+	<main class="cd-main" id="projects">
 
 		<div class="sharon">
-      <div class="sharon-about">
+      <div class="sharon-about" id="about">
         <div class="sharon-about-content">
-          <div class="flex">
+          <div class="sharon-about-content-top">
             <img class="left" src="cucu.jpg">
             <div class="panel-right">
               <p>My name is <span class="my-name">Sharon Duan</span> and I am an entry-level web designer seeking a position in web production/UI/UX.</p>
@@ -134,13 +134,19 @@
         </div>
       </div>
       <div class="sharon-block">
-        <h1><span>S</span><span class="small">haron</span> <span>D</span><span class="small">uan</span></h1>
+        <h1>Sharon Duan</h1>
 
         <p class="subhead">A UI/UX designer</p>
 
-        <div class="sharon-details sharon-hidden">
+        <div class="sharon-menu">
+          <a href="#projects">Projects</a>
+          <a href="#about">About me</a>
+          <a href="SharonDuan.pdf" target="_blank">Resume</a>
+        </div>
+
+        <div class="sharon-details sharon-hidden" id="contact">
           <div>
-            <a href="mailto:duxyu5@gmail.com" target="_blank"><i class="fa fa-envelope"></i>duxyu5@gmail.com</a>
+            <a href="mailto:sharonduan.design@gmail.com" target="_blank"><i class="fa fa-envelope"></i>sharonduan.design@gmail.com</a>
           </div>
           <div>
             <a href="tel:+1-202-316-5825"><i class="fa fa-phone"></i>+1 202-316-5825</a>
@@ -232,15 +238,35 @@
 		});
 
 
-		var isMobile = window.matchMedia("(@media only screen and (min-width: 600px))").matches;
-
-		if (!isMobile) {
+		if (viewportSize() !== 'mobile') {
 		  var t_foldSharon = setTimeout(foldSharon, 2000);
 		  $('.sharon').on('click.foldSharon', foldSharon);
 		} else {
-		  foldSharon();
-		  // $('.sharon-details').insertAfter('.bubbles');
-		}
+      $('.sharon-about').insertAfter('.cd-gallery');
+      $('.sharon-details').removeClass('sharon-hidden');
+      $('.sharon-details').insertAfter('.sharon-about');
+    }
+
+    function viewportSize() {
+      /* retrieve the content value of .cd-main::before to check the actua mq */
+      return window.getComputedStyle(document.querySelector('.cd-main'), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
+    }
+
+    // Snippet that smooth anchor links, credits to css-tricks.com
+    $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      });
+    });
 
 		return;
 
@@ -251,14 +277,11 @@
 		  setTimeout(function() {
 		    $('.sharon-details').removeClass('sharon-hidden');
 
-		    if (!isMobile) {
-		      $('.sharon').on('click', function() {
-		        $(this).toggleClass('about');
-            $('.sharon-about-content').width($(window).width() * 0.8);
-		      });
-		    }
-
-		  }, (isMobile) ? 0 : 1000);
+	      $('.sharon').on('click', function() {
+	        $(this).toggleClass('about');
+          $('.sharon-about-content').width($(window).width() * 0.8);
+	      });
+		  }, 1000);
 		}
 	});
 </script>
